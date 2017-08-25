@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import './TodoItem.css'
 
- 
  export default class TodoItem extends Component {
    render(){
-     return (
+     
+     return ( 
      <div className="TodoItem">
-       <input type="checkbox" checked={this.props.todo.status ==='completed'}
-       onChange={this.toggle.bind(this)}/><span className="title">{this.props.todo.title}</span>
-       <span className="complete">{converSion(this.props.todo.status)}</span>
-       <button onClick={this.delete.bind(this)}>删除</button>
+      <label className="toggle"><input type="checkbox"  checked={this.props.todo.status ==='completed'}
+       onChange={this.toggle.bind(this)}/><div className="hook"></div></label><span className="title">{this.props.todo.title}</span>
+       <span className="complete">{cc(converSion(this.props.todo.status))}</span>
+       <button onClick={this.delete.bind(this)}>χ</button>  
      </div>
      )
+     
    }
  
     toggle(e){
@@ -28,5 +29,12 @@ import './TodoItem.css'
       return '已完成'
     }else{
       return '未完成'
+    }
+  }
+  function cc(item){
+    if(item==='已完成'){
+     return <span className="green">已完成</span>
+    }else{
+     return <span className="red"> 未完成</span>
     }
   }

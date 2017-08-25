@@ -1,17 +1,76 @@
-.App {
+/*.App {
   color: #333;
-  border: 1px solid #aaa;
-  border-radius: 4px;
+  border: 1px solid #e6ebed;
+  border-radius: 2px;
   background: white;
   margin: 2em;
   padding: 0 1em;
   min-height: 20em;
   min-width: 32em;
-  box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
+  box-shadow: 0 0 1em hsla(0,0%,0%,0.08);
+}*/
+.App {
+  color: #333;
+  border: 1px solid #e6ebed;
+  border-radius: 2px;
+  background: white;
+  margin: 2em;
+  padding: 0 1em;
+  min-height: 20em;
+  min-width: 32em;
+  box-shadow: 0 0 1em hsla(0,0%,0%,0.08);
+  position: relative;
+   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC",
+     "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", 
+     "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
 }
-.App > .todoList> li:nth-child(odd){
+
+   
+  
+   
+   
+   
+   
+   
+   
+/*.App > .todoList> li:nth-child(odd){
    background: #eee;
  }
  .App > .todoList> li:nth-child(even){
    background: transparent;
- }
+ }*/
+ .App:before, .App:after {
+   
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 4px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    bottom:-20px;
+}
+ .App:after {
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.App:before {
+    left: 2px;
+    right: 2px;
+    bottom: -6.6px;
+    border-color: #c4c4c4;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+h1{
+  color:#444;
+}

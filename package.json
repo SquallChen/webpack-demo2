@@ -9,7 +9,7 @@
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.11"
   },
-  "homepage": "https://squallchen.github.io/webpack-demo2/build",
+  "homepage": "https://squallchen.github.io/TodoList/build",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
