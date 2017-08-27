@@ -142,7 +142,7 @@ export default class UserDialog extends Component{
                onChange={this.changeFormData.bind(this, 'email')}/>
            </div>
            <div className="row actions">
-             <button type="submit">发送重置邮件</button>
+             <button type="submit"onClick={this.resetPassword.bind(this)}>发送重置邮件</button>
              <a href="#" onClick={this.returnToSignIn.bind(this)}>返回登录</a>
            </div>
          </form>
