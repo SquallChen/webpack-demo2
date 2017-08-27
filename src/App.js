@@ -9,8 +9,6 @@ import {getCurrentUser, signOut} from './leanCloud'
 
 
 
-
-
 class App extends Component {
   constructor(props){
     super(props)
