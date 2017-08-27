@@ -10,8 +10,19 @@ AV.init({
 export default AV
 
 export const TodoModel = {
+  getByUser(user,successFn,errorFn){
+    let query = new AV.Query('todo')
+    query.find().then((response)=>{
+      let array = response.map((t)=>{
+        return {id:t.id,...t.attributes}
+      })
+      successFn.call(null,array)
+    },(error)=>{
+      errorFn&&errorFn.call(null,error)
+    })
+  },
    create({status, title, deleted}, successFn, errorFn){
-     let Todo = AV.Object.extend('Todo') // 记得把多余的分号删掉，我讨厌分号
+     let Todo = AV.Object.extend('Todo') 
      let todo = new Todo()
      todo.set('title', title)
      todo.set('status', status)
@@ -31,7 +42,7 @@ export const TodoModel = {
    }
  }
  
- export function signUp (email, username, password, successFn, errorFn) {
+export function signUp (email, username, password, successFn, errorFn) {
    // 新建 AVUser 对象实例
   var user = new AV.User()
   // 设置用户名
