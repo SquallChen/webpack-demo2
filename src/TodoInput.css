@@ -1,7 +1,15 @@
 .TodoInput{
-   width: 100%;
-   line-height: 1.8;
-   margin-bottom: 1em;
-   font-size: 16px;
-   padding: 0 .2em;
+   width: 90%;
+   font-size: 20px;
+   border: none;
+   margin:1em;
+   outline: none;
+   vertical-align:middle;
+   
+
  }
+.TodoInput::-webkit-input-placeholder { 
+  color:#E9E6E6; 
+  font-size: 1.2em;
+  font-style: italic;
+  }

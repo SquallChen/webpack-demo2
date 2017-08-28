@@ -1,5 +1,7 @@
 .TodoItem{
    padding: .5em;
+   padding-top:0.8em;
+   padding-bottom:0.8em;
    display: flex;
    align-items: center;
    font-family: 'Lucida Grande', Verdana, sans-serif;
@@ -21,7 +23,7 @@
    flex-grow: 1;
    padding: 0 .5em;
    color:#8B8F97;
-   font-size: 16px;
+   font-size: 20px;
    margin-left:40px;
  }
   .TodoItem>.complete{
@@ -33,7 +35,7 @@
 	  height: 35px;
   	width: 35px;
     position: absolute;
-    top: 0px;
+    top: 6px;
     bottom: 0px;
     left: 0px;
     text-indent: 100%;
@@ -83,6 +85,9 @@
 
 }
 
+.TodoItem:hover #btn{
+  opacity: 1;
+}
 .toggle:hover:before {
     -webkit-box-shadow: 0 0 3px #6bb3ca;
     -moz-box-shadow: 0 0 3px #6bb3ca;
@@ -112,4 +117,9 @@ button{
 }
 .red{
   color:#E56262;
+}
+#btn{
+  opacity: 0;
+  font-size: 1.16em;
+  cursor: pointer;
 }

@@ -8,7 +8,6 @@ import UserDialog from './UserDialog'
 import {getCurrentUser, signOut, TodoModel} from './leanCloud'
 
 
-
 class App extends Component {
   constructor(props){
     super(props)
@@ -41,9 +40,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>{this.state.user.username||'我'}的待办
-          {this.state.user.id ? <buttom onClick={this.signOut.bind(this)}>登出</buttom>:null}
-        </h1>
+        <p className="todostitle">todos </p>
+         
+        <div className="Appwrap">
+        <span className="username"><span className="welcome">Welcome,</span>{this.state.user.username}
+          {this.state.user.id ? <button id="signOut" onClick={this.signOut.bind(this)}>SignOut</button>:null}</span>
+          
         <div className="inputWrapper">
           <TodoInput content={this.state.newTodo}
           onChange={this.changeTitle.bind(this)} 
@@ -57,6 +59,7 @@ class App extends Component {
         <UserDialog 
         onSignUp={this.onSignUpOrSignIn.bind(this)}
         onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
+      </div>
       </div>
     )
   }

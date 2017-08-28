@@ -9,7 +9,7 @@ import './TodoItem.css'
       <label className="toggle"><input type="checkbox"  checked={this.props.todo.status ==='completed'}
        onChange={this.toggle.bind(this)}/><div className="hook"></div></label><span className="title">{this.props.todo.title}</span>
        <span className="complete">{cc(converSion(this.props.todo.status))}</span>
-       <button onClick={this.delete.bind(this)}>χ</button>  
+       <button id="btn" onClick={this.delete.bind(this)}>χ</button>  
      </div>
      )
      
