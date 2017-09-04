@@ -1,0 +1,31 @@
+.signIn .row input{
+    border:none;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #999;
+    outline: none;
+    margin-left:1.9em;
+    min-width: 16em;
+    min-height: 2.2em;
+
+}
+.signIn .row:nth-child(1){
+    margin-top:0.6em;
+}
+.signIn .row input::-webkit-input-placeholder{
+  color:#DEDEDE;
+}
+.signIn .submit{
+    font-size: 2em;
+    color:#E09898;
+    margin-left:1em;
+    cursor: pointer;
+    margin-bottom: 0.6em;
+}
+.signIn .submit:hover{
+    color:#DE5252;
+}
+.signIn a{
+    margin-left:3.6em;
+    color:#B7B7B7;
+    font-size: 0.8em;
+}

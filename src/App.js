@@ -43,7 +43,7 @@ class App extends Component {
         <p className="todostitle">todos </p>
          
         <div className="Appwrap">
-        <span className="username"><span className="welcome">Welcome,</span>{this.state.user.username}
+        <span className="username"><span className="welcome">{this.state.user.username ? 'Welcome,'+this.state.user.username:null}</span>
           {this.state.user.id ? <button id="signOut" onClick={this.signOut.bind(this)}>SignOut</button>:null}</span>
           
         <div className="inputWrapper">
@@ -69,7 +69,7 @@ class App extends Component {
     stateCopy.user = {}
     this.setState(stateCopy)
   }
- 
+  
   onSignUpOrSignIn(user){
     let stateCopy = JSON.parse(JSON.stringify(this.state))
     stateCopy.user = user

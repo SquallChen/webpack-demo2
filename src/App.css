@@ -53,12 +53,12 @@ h1{
   font-size: 100px;
   text-align: center;
   color:#EAD7D7;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.4em;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .username{
   position: absolute;
-  top:-26px;
+  top:-30px;
   right:10px;
   color:#E57E7E;
   font-size: 1.2em;
