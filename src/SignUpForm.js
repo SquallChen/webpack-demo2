@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import './SignUpForm.css'
 
+
 export default class SignUpForm extends Component {
+  
   render () {
+   
     return (
       <form className="signUp" onSubmit={this.props.onSubmit.bind(this)}> {/* 注册*/}
         <div className="row">

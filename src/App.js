@@ -26,7 +26,7 @@ class App extends Component {
     }
   }
   render() {
-
+    //所有待办
     let todos = this.state.todoList
     .filter((item)=>!item.deleted)
     .map((item,index)=>{
@@ -44,7 +44,8 @@ class App extends Component {
          
         <div className="Appwrap">
         <span className="username"><span className="welcome">{this.state.user.username ? 'Welcome,'+this.state.user.username:null}</span>
-          {this.state.user.id ? <button id="signOut" onClick={this.signOut.bind(this)}>SignOut</button>:null}</span>
+          {this.state.user.id ? <button id="signOut" onClick={this.signOut.bind(this)}>SignOut</button>:null}
+          </span>
           
         <div className="inputWrapper">
           <TodoInput content={this.state.newTodo}
@@ -63,22 +64,30 @@ class App extends Component {
       </div>
     )
   }
+  //登出并清空页面已输入的数据
   signOut(){
     signOut()
     let stateCopy = JSON.parse(JSON.stringify(this.state))
     stateCopy.user = {}
+    stateCopy.newTodo = ''
+    stateCopy.todoList = []
+    stateCopy.email = {}
     this.setState(stateCopy)
   }
   
+  //点击注册或者登录时  更新username并刷新数据
   onSignUpOrSignIn(user){
     let stateCopy = JSON.parse(JSON.stringify(this.state))
     stateCopy.user = user
+    TodoModel.getByUser(1, (todos) => {
+    stateCopy.todoList = todos
     this.setState(stateCopy)
+    })
   }
   componentDidUpdate(){
-     
+   
    }
-  
+  //设置完成 未完成
   toggle(e,todo){
     let oldStatus = todo.status
     todo.status = todo.status === 'completed' ? '' : 'completed'
@@ -89,6 +98,7 @@ class App extends Component {
       this.setState(this.state)
     })
   }
+   //监听input输入改变，是为了解决在点击回车添加todo时，输入框置空
   changeTitle(event){
     this.setState({
       newTodo:event.target.value,
@@ -96,6 +106,7 @@ class App extends Component {
     })
   
   }
+  //添加待办事项
   addTodo(event){
     let newTodo = {
       title:event.target.value,
@@ -113,6 +124,8 @@ class App extends Component {
        console.log(error)
     })
   }
+
+  //删除待办(实际是设置delete为true则不显示，以防后续需要恢复“已删除”的数据)
   delete(event,todo){
     TodoModel.destroy(todo.id,()=>{
       todo.deleted = true

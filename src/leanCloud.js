@@ -11,6 +11,7 @@ export default AV
 
 // 所有跟 Todo 相关的 LeanCloud 操作都放到这里
 export const TodoModel = {
+   //获取所有用户的todo  查
   getByUser(user, successFn, errorFn){
     // 文档见 https://leancloud.cn/docs/leanstorage_guide-js.html#批量操作
     let query = new AV.Query('Todo')
@@ -25,7 +26,7 @@ export const TodoModel = {
     })
   },
   create({status, title, deleted}, successFn, errorFn){
-    let Todo = AV.Object.extend('Todo') // 记得把多余的分号删掉，我讨厌分号
+    let Todo = AV.Object.extend('Todo') 
     let todo = new Todo()
     todo.set('title', title)
     todo.set('status', status)
@@ -73,6 +74,7 @@ export const TodoModel = {
   }
 }
 
+//注册用户
 export function signUp (email, username, password, successFn, errorFn) {
   // 新建 AVUser 对象实例
   var user = new AV.User()
@@ -93,7 +95,7 @@ export function signUp (email, username, password, successFn, errorFn) {
   return undefined
 
 }
-
+//登录
 export function signIn (username, password, successFn, errorFn) {
   AV.User.logIn(username, password).then(function (loginedUser) {
     let user = getUserFromAVUser(loginedUser)
@@ -103,6 +105,7 @@ export function signIn (username, password, successFn, errorFn) {
   })
 }
 
+//获取上次登录的账户
 export function getCurrentUser () {
   let user = AV.User.current()
   if (user) {
@@ -111,11 +114,13 @@ export function getCurrentUser () {
     return null
   }
 }
+//登出
 export function signOut () {
   AV.User.logOut()
   return undefined
 }
 
+//发送重置密码邮箱账号
 export function sendPasswordResetEmail (email, successFn, errorFn) {
   AV.User.requestPasswordReset(email).then(function (success) {
     successFn.call()
@@ -124,6 +129,7 @@ export function sendPasswordResetEmail (email, successFn, errorFn) {
   })
 }
 
+//获取当前用户
 function getUserFromAVUser (AVUser) {
   return {
     id: AVUser.id,

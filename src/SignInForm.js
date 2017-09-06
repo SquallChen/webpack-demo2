@@ -15,7 +15,7 @@ export default class SignInForm extends Component {
         </div>
         <div className="row actions">
           <button type="submit" className="submit">Sign In</button>
-          <a href="#" onClick={this.props.onForgotPassword}>Forgot Password?</a>
+          <a href="" onClick={this.props.onForgotPassword}>Forgot Password?</a>
         </div>
       </form>
     )
